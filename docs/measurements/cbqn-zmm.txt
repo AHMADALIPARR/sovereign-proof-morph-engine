@@ -1,0 +1,5 @@
+CBQN b62079a, gcc (Debian 14.2.0-19) 14.2.0, measured 2026-11-04 with objdump -d BQN | grep -c zmm
+make o3                                          (baseline, /workspace/_tools_cbqn/CBQN/BQN)         zmm=0
+make o3n                                         (fresh rebuild in a scratch copy)                    zmm=572   cmp vs benchmarked AVX-512 binary: differ: byte 25, line 1
+make o3n f="-mprefer-vector-width=512"           (fresh rebuild in a scratch copy)                    zmm=4557  cmp vs benchmarked AVX-512 binary: IDENTICAL
+benchmarked AVX-512 binary (/workspace/_tools_cbqn/CBQN-avx512/BQN)                                  zmm=4557

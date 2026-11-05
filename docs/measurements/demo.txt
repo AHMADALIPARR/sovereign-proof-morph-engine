@@ -1,0 +1,103 @@
++ $REPO/rust/target/release/spme load $REPO/examples/gen0.morph --work $REPO/build/demo --seed 7386
+== load ==
+source sha256    b1b41324a5d2046b150d2ab5f2f877f94ec2059f82e6de8fd770c806e8353f7d
+agda             Agda version 2.6.4.3 checked
+version          v0000 active
+measure          vm_instr=290 native median 3567327 ns / 1000000 calls
+ledger           d4f33c5446f478928fa84f1664677d58f22e3cadf2bf30f48f0fec4e46a2cc8e
++ $REPO/rust/target/release/spme run --work $REPO/build/demo --seed 7386 --generations 3
+== generation 1 : COMMIT ==
+candidate        G1xfe9be3e0cddd
+source sha256    b1b41324a5d2046b150d2ab5f2f877f94ec2059f82e6de8fd770c806e8353f7d
+target sha256    fe9be3e0cddd3fe654bae0bd234171b0589fa2f802aa7d745e6c502bfcf1ce75
+script           dce,pe3,cf,pe1;pe3,alg,pe3;alg,alg,alg;fuse;dce,pe1,cf
+anneal           seed=11400714819323191503 proposed=400 valid=400 accepted=259 uphill=34 improved=9 E0=26.934648456566887 E*=21.24485415833575 Tfinal=0.0047372051714032306 stop=iteration budget
+torus            t=167 coord=[14863,411154] phase=91
+ranking (distinct targets, best first):
+  1. E=21.24485415833575 instr=20 size=17 script=dce,pe3,cf,pe1;pe3,alg,pe3;alg,alg,alg;fuse;dce,pe1,cf
+  2. E=22.316680176353074 instr=22 size=19 script=dce,pe3,cf,pe1;cf,cf;dce,pe3;pe1,cf,pe4,fuse;cf
+  3. E=22.316680176353074 instr=22 size=19 script=dce,pe3,cf,pe1;pe3,alg,pe3;alg,alg,alg;dce,pe2,dce,dce;dce,pe1,cf
+  4. E=22.393745871391026 instr=23 size=24 script=dce,pe3,cf,pe1;pe3,alg,pe3;alg,alg,alg;fuse;dce,pe1,cf;spec:1:(int 5)
+  5. E=23.316680176353074 instr=22 size=19 script=dce,pe3,cf,pe1;pe3,alg,pe3;dce,cf,dce,fuse;fuse;cf,pe2,pe4,dce
+agda             CertG1xfe9be3e0cddd checked in 7342 ms (Agda version 2.6.4.3)
+datalog          COMMIT reasons=[] (Version: 2.5 (2.5))
+migration        none_required
+native           inputs=69 agree_vm=69 agree_reference=40 reference_trapped=29 binary=2f25a2b9acc74a61dde8b6297646931da42629e70d1d1d855c2973ce39e85d2a
+measure before   vm_instr=290 ir_size=35 native median 3358770 ns / 1000000 calls (3.35877 ns/call) runs=[3905346,3358770,3060251,2877444,3889311]
+measure after    vm_instr=100 ir_size=17 native median 2901746 ns / 1000000 calls (2.901746 ns/call) runs=[2658511,2901746,2682017,2981011,3054744]
+version          v0001
+reason           all obligations checked, gate COMMIT, native validated, activated
+ledger           0aeb61ceb62d8f7bc4941f8f9b1d37ee503128e911c061d35081d59957d4bc35
+== generation 2 : REJECT ==
+candidate        G2xfe9be3e0cddd
+source sha256    fe9be3e0cddd3fe654bae0bd234171b0589fa2f802aa7d745e6c502bfcf1ce75
+target sha256    fe9be3e0cddd3fe654bae0bd234171b0589fa2f802aa7d745e6c502bfcf1ce75
+script           
+anneal           seed=4354685564936840432 proposed=250 valid=250 accepted=204 uphill=6 improved=0 E0=21.24485415833575 E*=21.24485415833575 Tfinal=0.04571804176762635 stop=no improvement within patience
+torus            t=167 coord=[14863,411154] phase=91
+ranking (distinct targets, best first):
+  1. E=21.24485415833575 instr=20 size=17 script=
+  2. E=22.393745871391026 instr=23 size=24 script=alg;fuse,alg,alg,cf;spec:1:(int 5)
+agda             CertG2xfe9be3e0cddd checked in 7331 ms (Agda version 2.6.4.3)
+chain            CertChain2 ok=true in 7263 ms
+datalog          SILENCE reasons=["no_semantic_preservation","topology_invalid"] (Version: 2.5 (2.5))
+migration        none_required
+version          v0001
+reason           SILENCE: no_semantic_preservation; topology_invalid
+ledger           d87b77811e2d1e275bf5382404e09546cb9ddb1561fe3a4f1b04f6fc8f92d2cc
+== generation 3 : REJECT ==
+candidate        G3xfe9be3e0cddd
+source sha256    fe9be3e0cddd3fe654bae0bd234171b0589fa2f802aa7d745e6c502bfcf1ce75
+target sha256    fe9be3e0cddd3fe654bae0bd234171b0589fa2f802aa7d745e6c502bfcf1ce75
+script           
+anneal           seed=15755400384260040933 proposed=250 valid=250 accepted=205 uphill=6 improved=0 E0=21.24485415833575 E*=21.24485415833575 Tfinal=0.04571804176762635 stop=no improvement within patience
+torus            t=167 coord=[14863,411154] phase=91
+ranking (distinct targets, best first):
+  1. E=21.24485415833575 instr=20 size=17 script=
+  2. E=22.393745871391026 instr=23 size=24 script=pe2,pe1;cf,fuse;spec:1:(int 5)
+agda             CertG3xfe9be3e0cddd checked in 7171 ms (Agda version 2.6.4.3)
+chain            CertChain3 ok=true in 7224 ms
+datalog          SILENCE reasons=["no_semantic_preservation","topology_invalid"] (Version: 2.5 (2.5))
+migration        none_required
+version          v0001
+reason           SILENCE: no_semantic_preservation; topology_invalid
+ledger           96c2b7ce9b4b8171c6bb3666c9af3499de9e36c4996af560732532e1cdf8fe60
++ $REPO/rust/target/release/spme verify-ledger --work $REPO/build/demo
+ledger OK: 4 records, head 96c2b7ce9b4b8171c6bb3666c9af3499de9e36c4996af560732532e1cdf8fe60
++ $REPO/rust/target/release/spme replay --work $REPO/build/demo --recheck
+ledger: 4 records, hash chain verified, head 96c2b7ce9b4b8171c6bb3666c9af3499de9e36c4996af560732532e1cdf8fe60
+#0 load: initial verified program loaded
+#1 G1xfe9be3e0cddd COMMIT: certificates re-hashed OK; agda: CertG1xfe9be3e0cddd checked (7763 ms); datalog COMMIT (recorded COMMIT); script reproduces target; anneal replay: identical (best_t=167, proposed=400, accepted=259, target identical)
+#2 G2xfe9be3e0cddd REJECT: certificates re-hashed OK; agda: CertG2xfe9be3e0cddd checked (7592 ms), CertChain2 checked (7342 ms); datalog SILENCE (recorded SILENCE); script reproduces target; anneal replay: identical (best_t=167, proposed=250, accepted=204, target identical)
+#3 G3xfe9be3e0cddd REJECT: certificates re-hashed OK; agda: CertG3xfe9be3e0cddd checked (7311 ms), CertChain3 checked (7516 ms); datalog SILENCE (recorded SILENCE); script reproduces target; anneal replay: identical (best_t=167, proposed=250, accepted=205, target identical)
+version v0000: manifest, IR and binary hashes consistent
+version v0001: manifest, IR and binary hashes consistent
+active: v0001 ir fe9be3e0cddd3fe654bae0bd234171b0589fa2f802aa7d745e6c502bfcf1ce75
+replay: OK (4 records)
++ $REPO/rust/target/release/spme ref-check --work $REPO/build/demo
+v0000                    inputs=69 agree=41 rust_overflow_excluded=28 disagree=0
+v0001                    inputs=69 agree=41 rust_overflow_excluded=28 disagree=0
++ $REPO/rust/target/release/spme exhaustive $REPO/examples/gen0.morph --depth 2
+exhaustive depth=2 visited=31 best script=pe4;cf energy=25.812727784816754 cost=Cost { instructions: 44, peak_stack: 6, size: 37 }
++ $REPO/rust/target/release/spme engine-a $REPO/lean/EngineAArith.lean --out $REPO/build/demo/engine-a
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Agda version 2.6.4.3
+liquidhaskell-0.9.6.3.1 (refinement checks are recorded, not proof authority)
+def      scale          translated     
+def      poly           translated     
+def      twice          translated     
+def      pick           translated     
+def      mix            translated     
+theorem  scale_id       PROVED (Agda)  lean/ir agreement 4/4 
+                        liquidhaskell: SAFE
+theorem  poly_eq        PROVED (Agda)  lean/ir agreement 4/4 
+                        liquidhaskell: SAFE
+theorem  twice_id       PROVED (Agda)  lean/ir agreement 4/4 
+                        liquidhaskell: SAFE
+theorem  pick_id        UNPROVED       lean/ir agreement 4/4 Engine B normal forms differ after 4 rounds: lhs (if (fst #0) (snd #0) (snd #0)) vs rhs (snd #0)
+                        liquidhaskell: SAFE
+theorem  mix_eq         PROVED (Agda)  lean/ir agreement 4/4 
+                        liquidhaskell: SAFE
+theorem  lit_arith      PROVED (Agda)  lean/ir agreement 1/1 
+                        liquidhaskell: SAFE
+report: $REPO/build/demo/engine-a/report.json

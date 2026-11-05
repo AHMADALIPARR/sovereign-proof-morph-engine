@@ -1,0 +1,190 @@
+== Audit.lean
+'XREX_ALSC_Checked.toNat_add_le' depends on axioms: [propext]
+'XREX_ALSC_Checked.alsc_fp16_safe' depends on axioms: [propext, Quot.sound]
+'SovereignSuperposition_Checked.alsc_fp16_safe' depends on axioms: [propext, Quot.sound]
+'SovereignSuperposition_Checked.extract_verified_agent' depends on axioms: [propext, Quot.sound]
+exit 0
+== EngineAArith.lean
+exit 0
+== EngineAUnsupported.lean
+exit 0
+== HarmonicAperiodic.lean
+HarmonicAperiodic.lean:3:0: error: object file '/workspace/sovereign-proof-morph-engine/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Real/Irrational.olean' of module Mathlib.Data.Real.Irrational does not exist
+exit 1
+== HarmonicAperiodic_Checked.lean
+'HarmonicAperiodic_Checked.harmonic_never_loops' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HarmonicAperiodic_Checked.bqn_harmonic_never_loops' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0
+== PhaseNormalization.lean
+'PhaseNormalization.coprime_89_2462' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PhaseNormalization.roundtrip' depends on axioms: [propext, Quot.sound]
+'PhaseNormalization.roundtrip'' depends on axioms: [propext, Quot.sound]
+'PhaseNormalization.phase_injective_on' depends on axioms: [propext, Quot.sound]
+'PhaseNormalization.phase_period' depends on axioms: [propext, Quot.sound]
+'PhaseNormalization.collision_iff' depends on axioms: [propext, Quot.sound]
+'PhaseNormalization.winding_closes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PhaseNormalization.sampling_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0
+== SnapUnique.lean
+SnapUnique.lean:3:0: warning: 
+'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+SnapUnique.lean:13:80: error: unexpected token 'variable'; expected 'lemma'
+SnapUnique.lean:17:77: error: unexpected token 'variable'; expected 'lemma'
+SnapUnique.lean:29:26: error: don't know how to synthesize implicit argument `α`
+  @Function.Injective TokenSpace ℝ sq_dist
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+⊢ Type
+SnapUnique.lean:18:20: error: don't know how to synthesize implicit argument `N`
+  @TokenSpace ?m.6
+context:
+N : ℕ
+inst✝ : NeZero N
+⊢ ℕ
+SnapUnique.lean:35:24: error: don't know how to synthesize implicit argument `α`
+  @Exists TokenSpace fun min_tok => ∀ (tok : TokenSpace), sq_dist min_tok ≤ sq_dist tok
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+⊢ Type
+SnapUnique.lean:35:56: error: don't know how to synthesize implicit argument `N`
+  @TokenSpace ?m.11
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+min_tok : TokenSpace
+⊢ ℕ
+SnapUnique.lean:35:36: error: don't know how to synthesize implicit argument `N`
+  @TokenSpace ?m.11
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+⊢ ℕ
+SnapUnique.lean:18:20: error: don't know how to synthesize implicit argument `N`
+  @TokenSpace ?m.11
+context:
+N : ℕ
+inst✝ : NeZero N
+⊢ ℕ
+SnapUnique.lean:89:5: error: unknown tactic
+SnapUnique.lean:47:2: error: don't know how to synthesize implicit argument `α`
+  @ExistsUnique TokenSpace fun snap_tok => ∀ (tok : TokenSpace), tok ≠ snap_tok → sq_dist snap_tok < sq_dist tok
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+⊢ Type
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+SnapUnique.lean:47:48: error: don't know how to synthesize implicit argument `α`
+  @Ne TokenSpace tok snap_tok
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+snap_tok tok : TokenSpace
+⊢ Type
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+SnapUnique.lean:47:36: error: don't know how to synthesize implicit argument `N`
+  @TokenSpace ?m.9
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+snap_tok : TokenSpace
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+SnapUnique.lean:47:16: error: don't know how to synthesize implicit argument `N`
+  @TokenSpace ?m.9
+context:
+N : ℕ
+inst✝ : NeZero N
+sq_dist : TokenSpace → ℝ
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+SnapUnique.lean:18:20: error: don't know how to synthesize implicit argument `N`
+  @TokenSpace ?m.9
+context:
+N : ℕ
+inst✝ : NeZero N
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+exit 1
+== SnapUniqueFixed.lean
+SnapUniqueFixed.lean:3:0: error: object file '/workspace/sovereign-proof-morph-engine/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Bounds.olean' of module Mathlib.Order.Bounds does not exist
+exit 1
+== SnapUniqueFixed_Inconsistent.lean
+@exists_min_dist : ∀ {N : ℕ} (sq_dist : TokenSpace N → ℝ),
+  ∃ min_tok, ∀ (tok : TokenSpace N), sq_dist min_tok ≤ sq_dist tok
+'SnapUniqueFixedInconsistent.inconsistent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ SnapUniqueFixedInconsistent.exists_min_dist]
+exit 0
+== SnapUnique_Checked.lean
+'SnapUnique_Checked.exists_min_dist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SnapUnique_Checked.snap_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SnapUnique_Checked.snap_kernel_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SnapUnique_Checked.midpoint_tie' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0
+== SnapUnique_Inconsistent.lean
+'SnapUniqueInconsistent.inconsistent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ SnapUniqueInconsistent.x_graph_injective]
+exit 0
+== SovereignSuperposition.lean
+SovereignSuperposition.lean:41:2: error: Tactic `split` failed: Could not split an `if` or `match` expression in the goal
+
+Hint: Use `set_option trace.split.failure true` to display additional diagnostic information
+
+hw_log : BitVec 64 → BitVec 64
+x : BitVec 64
+⊢ (if x.toNat ≤ 4 then x else 4#64 + hw_log (1#64 + x - 4#64)).toNat ≤ 65504
+SovereignSuperposition.lean:86:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+  89*a - 2462*b ≥ 1
+where
+ a := ↑ω_l * ↑t
+ b := ↑ω_m * ↑t
+exit 1
+== SovereignSuperposition_Checked.lean
+exit 0
+== TwinAnchor.lean
+TwinAnchor.lean:3:0: error: object file '/workspace/sovereign-proof-morph-engine/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Real/Irrational.olean' of module Mathlib.Data.Real.Irrational does not exist
+exit 1
+== TwinAnchor_Checked.lean
+'ConsciousOmega_Checked.sqrt_five_irr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConsciousOmega_Checked.antipode_anchor_is_irrational' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0
+== XGraph.lean
+'XGraph.eventually_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XGraph.period_multiple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XGraph.merge' depends on axioms: [propext]
+'XGraph.midpoint_tie' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0
+== XREX_ALSC.lean
+XREX_ALSC.lean:20:2: error: unexpected token 'variable'; expected 'lemma'
+XREX_ALSC.lean:47:2: error: Tactic `split` failed: Could not split an `if` or `match` expression in the goal
+
+Hint: Use `set_option trace.split.failure true` to display additional diagnostic information
+
+hw_log : BitVec 64 → BitVec 64
+x : BitVec 64
+⊢ (if x.toNat ≤ 4 then x else 4#64 + hw_log (1#64 + x - 4#64)).toNat ≤ 65504
+exit 1
+== XREX_ALSC_Checked.lean
+exit 0
