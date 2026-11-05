@@ -1,0 +1,69 @@
+    Finished `release` profile [optimized] target(s) in 1.39s
+     Running unittests src/lib.rs (target/release/deps/spme-7308f72ba744aec1)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/bin/certcheck.rs (target/release/deps/certcheck-45d3ba94abb21e8e)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/main.rs (target/release/deps/spme-43b9ccea2884c71f)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/common.rs (target/release/deps/common-f54a590bd8f89271)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/t01_torus.rs (target/release/deps/t01_torus-842be821fc3259f3)
+running 5 tests
+test g01_extracted_table_is_on_path ... ok
+test g01_gcd_and_minimal_winding ... ok
+test g01_negative_corrupted_table_rejected ... ok
+test g02_phase_wraps_and_is_a_permutation ... ok
+test g02_sampling_collisions_exactly_mod_2462 ... ok
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/t03_anneal.rs (target/release/deps/t03_anneal-b2b093f514dc6919)
+running 4 tests
+test g03_prng_and_anneal_replay_deterministic ... ok
+test g04_acceptance_rate_monotone_in_temperature ... ok
+test g04_acceptance_rule ... ok
+test g04_temperature_schedule_cools ... ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+     Running tests/t05_ir.rs (target/release/deps/t05_ir-f441c82dc1ca9183)
+running 10 tests
+test g05_machine_overflow_traps_not_wraps ... ok
+test g05_negative_malformed_programs ... ok
+test g05_parse_typecheck_eval ... ok
+test g06_each_pass_does_its_rewrite ... ok
+test g06_every_pass_preserves_semantics ... ok
+test g06_negative_bad_scripts ... ok
+test g06_specialization ... ok
+test g15_haskell_reference_model_agrees ... ok
+test g15_native_binary_before_and_after ... ok
+test g15_vm_matches_reference_before_and_after ... ok
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.83s
+     Running tests/t07_checkers.rs (target/release/deps/t07_checkers-fb12a558bbf81bda)
+running 6 tests
+test g07_lean_engine_a_proves_supported_theorems ... ok
+test g07_negative_lean_rejects_wrong_and_sorry ... ok
+test g07_negative_unsupported_translations ... ok
+test g08_agda_accepts_valid_and_rejects_malformed ... ok
+test g09_liquidhaskell_safe_and_unsafe ... ok
+test g11_invalid_certificate_rejected ... ok
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 56.35s
+     Running tests/t10_gate.rs (target/release/deps/t10_gate-921c19ac39f088d0)
+running 7 tests
+test g10_accepts_complete_evidence ... ok
+test g10_broken_rules_fail_closed ... ok
+test g10_liquidhaskell_is_not_proof_authority ... ok
+test g10_rejects_each_missing_obligation ... ok
+test g10_rejects_failed_proof ... ok
+test g10_synth_fails_closed ... ok
+test g10_topology_and_runtime_premises ... ok
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+     Running tests/t12_lifecycle.rs (target/release/deps/t12_lifecycle-ded220e630197ec8)
+running 3 tests
+test g12_g14_lifecycle_faults_rollback_chain_replay_tamper ... ok
+test g13_ledger_unit_tamper_and_truncation ... ok
+test negative_invalid_migrations ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 113.46s
+   Doc-tests spme
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

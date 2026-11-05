@@ -1,0 +1,3 @@
+$ rust/target/release/spme torus   (2026-11-04 19:27 PST)
+torus table: 4096 rows, header sha256 7eea5d0f773c98652bc7cd0b37c9f9402d29cc1297aaa52c88234f309324984a; phase over t=0..2461 is a permutation: true
+exit 0
