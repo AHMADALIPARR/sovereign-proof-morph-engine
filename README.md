@@ -196,7 +196,7 @@ On these interpreted workloads the AVX-512 build is slower on three of the four.
 | `make o3n` (fresh rebuild) | 572 (binary differs from the benchmarked one) |
 | `make o3n f="-mprefer-vector-width=512"` (fresh rebuild) | 4557, byte-identical to the benchmarked AVX-512 binary |
 
-![AVX-512 timings](docs/figures/avx512_timings.png)
+![AVX-512 timings](docs/figures/avx512_timings.svg)
 
 ## BQN outputs, loops and ties
 
@@ -224,9 +224,9 @@ equidistant from both rows, so its snap is decided by tie-breaking: 3911 ties me
 
 | | |
 |---|---|
-| ![twin trace tokens](docs/figures/twin_trace_tokens.png) | ![harmonic scalars](docs/figures/harmonic_scalars.png) |
-| ![tie counts](docs/figures/tie_counts.png) | ![cumulative snap ties](docs/figures/snap_ties_cumulative.png) |
-| ![torus path](docs/figures/torus_path.png) | |
+| ![twin trace tokens](docs/figures/twin_trace_tokens.svg) | ![harmonic scalars](docs/figures/harmonic_scalars.svg) |
+| ![tie counts](docs/figures/tie_counts.svg) | ![cumulative snap ties](docs/figures/snap_ties_cumulative.svg) |
+| ![torus path](docs/figures/torus_path.svg) | |
 
 The figures come from [scripts/figures.sh](scripts/figures.sh) and
 [scripts/figures.gp](scripts/figures.gp) (gnuplot). Their data comes from
@@ -360,12 +360,12 @@ Every tracked file and folder:
   [torus-invariant.md](docs/torus-invariant.md)
   [verification-report.md](docs/verification-report.md)
 - **[docs/figures/](docs/figures)**:
-  [avx512_timings.png](docs/figures/avx512_timings.png)
-  [harmonic_scalars.png](docs/figures/harmonic_scalars.png)
-  [snap_ties_cumulative.png](docs/figures/snap_ties_cumulative.png)
-  [tie_counts.png](docs/figures/tie_counts.png)
-  [torus_path.png](docs/figures/torus_path.png)
-  [twin_trace_tokens.png](docs/figures/twin_trace_tokens.png)
+  [avx512_timings.svg](docs/figures/avx512_timings.svg)
+  [harmonic_scalars.svg](docs/figures/harmonic_scalars.svg)
+  [snap_ties_cumulative.svg](docs/figures/snap_ties_cumulative.svg)
+  [tie_counts.svg](docs/figures/tie_counts.svg)
+  [torus_path.svg](docs/figures/torus_path.svg)
+  [twin_trace_tokens.svg](docs/figures/twin_trace_tokens.svg)
 - **[docs/measurements/](docs/measurements)**:
   [agda.txt](docs/measurements/agda.txt)
   [bqn.txt](docs/measurements/bqn.txt)
@@ -476,7 +476,7 @@ make test               # cargo test --release (35 tests)
 make bqn BQN=/path/to/CBQN/BQN
 make bqn-avx512 BQN=/path/to/CBQN/BQN BQN_AVX512=/path/to/CBQN-avx512/BQN
 make demo               # scripts/demo.sh (output: docs/measurements/demo.txt)
-make figures            # docs/figures/*.png (gnuplot)
+make figures            # docs/figures/*.svg and *.png (gnuplot)
 make notebook           # execute notebooks/end_to_end.ipynb in place (NBVENV=jupyter venv)
 scripts/make_notebook.sh  # regenerate the notebook source (bash + jq)
 

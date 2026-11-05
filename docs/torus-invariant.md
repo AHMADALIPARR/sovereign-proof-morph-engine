@@ -21,4 +21,4 @@ is 2462·m = 89·l.
 gcd(89, 2462) = 1, so the phase map t ↦ 89t mod 2462 is a permutation of
 Z₂₄₆₂. The winding first closes at t = 2462
 ([lean/PhaseNormalization.lean](../lean/PhaseNormalization.lean); tests `g01`, `g02`).
-See [figures/torus_path.png](figures/torus_path.png).
+See [figures/torus_path.svg](figures/torus_path.svg).
