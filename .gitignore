@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SnapKitty-Opaque-1.0
+# Copyright (C) 2026 Ahmad Ali Parr / SnapKitty Research Lab
+/_build/
+/target/
+/runs/
+lean/.lake/
+**/_build/
+*.agdai
+*.hi
+*.o
+/haskell/dist-newstyle/
+/notebooks/.ipynb_checkpoints/
+agda/MAlonzoBuild/
+agda/snap-omega-engine
+rust/target/
+rust/Cargo.lock.bak
+/haskell/build/
+**/.liquid/
+/build/
