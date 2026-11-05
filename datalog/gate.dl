@@ -1,0 +1,126 @@
+// SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SnapKitty-Opaque-1.0
+// Copyright (C) 2026 Ahmad Ali Parr / SnapKitty Research Lab
+//
+// L3 evidence and policy gate (Soufflé). A candidate is COMMITted only when
+// every required verification and authorization predicate holds; in every
+// other case the verdict is SILENCE and the last accepted executable stays
+// active. Input facts are kept in three disjoint classes:
+//   proof_result  - outcomes of proof checkers (Agda, Lean)
+//   observation   - runtime observations (differential execution, migration)
+//   policy_flag   - policy classification inputs (SYNTH rules, ADR status)
+
+// ---------------------------------------------------------------- inputs
+.decl candidate(c: symbol)
+.input candidate
+.decl source_artifact(c: symbol, h: symbol)
+.input source_artifact
+.decl target_artifact(c: symbol, h: symbol)
+.input target_artifact
+.decl active(h: symbol)
+.input active
+// proof_result(candidate, obligation, checker, outcome, obligation_sha256)
+.decl proof_result(c: symbol, o: symbol, checker: symbol, outcome: symbol, h: symbol)
+.input proof_result
+// observation(candidate, kind, outcome)
+.decl observation(c: symbol, kind: symbol, outcome: symbol)
+.input observation
+// topology(candidate, t, m, l, phase); last_t: coordinate of the active version
+.decl topology(c: symbol, t: unsigned, m: unsigned, l: unsigned, p: unsigned)
+.input topology
+.decl last_t(t: unsigned)
+.input last_t
+// policy_flag(candidate, flag): clean | ambiguous | contaminated | rh_assertion | pending
+.decl policy_flag(c: symbol, f: symbol)
+.input policy_flag
+// chain_required(candidate): the source is itself a morph output
+.decl chain_required(c: symbol)
+.input chain_required
+
+// ------------------------------------------------------- fixed policy data
+.decl required_obligation(o: symbol)
+required_obligation("typed_ir_preservation").
+required_obligation("rewrite_correctness").
+required_obligation("execution_correspondence").
+required_obligation("knot_validity").
+required_obligation("phase_normalization").
+
+// ADR-055: the Riemann Hypothesis stays OPEN_CRUX; nothing here proves it.
+.decl adr(id: symbol, subject: symbol, status: symbol)
+adr("ADR-055", "RH", "OPEN_CRUX").
+adr("ADR-062", "verdict", "SILENCE_PENDING").
+
+// ------------------------------------------------------------ derivations
+// Proof authority: Agda and Lean results only. LiquidHaskell (or any other
+// checker) is recorded but never counts as proof_checked.
+.decl proof_authority(k: symbol)
+proof_authority(k) :- proof_result(_, _, k, _, _), strlen(k) > 5, substr(k, 0, 5) = "agda-".
+proof_authority(k) :- proof_result(_, _, k, _, _), strlen(k) > 5, substr(k, 0, 5) = "lean-".
+
+.decl proof_checked(c: symbol, o: symbol)
+proof_checked(c, o) :- proof_result(c, o, k, "checked", _), proof_authority(k).
+
+.decl proof_failed(c: symbol, o: symbol)
+proof_failed(c, o) :- proof_result(c, o, _, outcome, _), outcome != "checked".
+
+.decl missing(c: symbol, o: symbol)
+missing(c, o) :- candidate(c), required_obligation(o), !proof_checked(c, o).
+missing(c, "chain_composition") :- chain_required(c), !proof_checked(c, "chain_composition").
+
+.decl semantic_preservation(c: symbol)
+semantic_preservation(c) :-
+  candidate(c), source_artifact(c, s), target_artifact(c, t), active(s), s != t,
+  proof_checked(c, "typed_ir_preservation"),
+  proof_checked(c, "rewrite_correctness"),
+  proof_checked(c, "execution_correspondence"),
+  !missing(c, "chain_composition").
+
+.decl topology_valid(c: symbol)
+topology_valid(c) :-
+  topology(c, t, m, l, p), last_t(lt), t > lt,
+  m = 89 * t, l = 2462 * t, 2462 * m = 89 * l, p = (89 * t) % 2462,
+  proof_checked(c, "knot_validity"), proof_checked(c, "phase_normalization").
+
+.decl runtime_authorized(c: symbol)
+runtime_authorized(c) :-
+  candidate(c),
+  observation(c, "differential_samples", "pass"),
+  observation(c, "state_migration", "pass"),
+  !observation(c, _, "fail").
+
+// SYNTH verdict rules. "ambiguous" is evidence only subject to the actual
+// substrate conditions; the substrate is not present, so it fails closed.
+.decl synth_silence(c: symbol, why: symbol)
+synth_silence(c, "rh_assertion") :- policy_flag(c, "rh_assertion").
+synth_silence(c, "contaminated") :- policy_flag(c, "contaminated").
+synth_silence(c, "ambiguous_without_substrate") :- policy_flag(c, "ambiguous").
+synth_silence(c, "SILENCE_PENDING") :- policy_flag(c, "pending"), adr("ADR-062", _, "SILENCE_PENDING").
+synth_silence(c, "unclassified") :- candidate(c), !policy_flag(c, "clean"), !policy_flag(c, "ambiguous"),
+  !policy_flag(c, "contaminated"), !policy_flag(c, "rh_assertion"), !policy_flag(c, "pending").
+
+.decl synth_evidence(c: symbol)
+synth_evidence(c) :- policy_flag(c, "clean"), !synth_silence(c, _).
+
+.decl authorized(c: symbol)
+authorized(c) :-
+  candidate(c), semantic_preservation(c), topology_valid(c),
+  runtime_authorized(c), synth_evidence(c),
+  !missing(c, _), !proof_failed(c, _).
+
+.decl policy_verdict(c: symbol, v: symbol)
+policy_verdict(c, "COMMIT") :- authorized(c).
+policy_verdict(c, "SILENCE") :- candidate(c), !authorized(c).
+.output policy_verdict
+
+.decl silence_reason(c: symbol, r: symbol)
+silence_reason(c, cat("missing:", o)) :- missing(c, o).
+silence_reason(c, cat("failed:", o)) :- proof_failed(c, o).
+silence_reason(c, "no_semantic_preservation") :- candidate(c), !semantic_preservation(c).
+silence_reason(c, "topology_invalid") :- candidate(c), !topology_valid(c).
+silence_reason(c, "runtime_unauthorized") :- candidate(c), !runtime_authorized(c).
+silence_reason(c, cat("synth:", w)) :- synth_silence(c, w).
+.output silence_reason
+
+.output proof_checked
+.output semantic_preservation
+.output topology_valid
+.output runtime_authorized
