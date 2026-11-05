@@ -1,0 +1,52 @@
+zmm_count base=0 avx512=4557
+cpu_avx512f=1
+generated N=7386 V=512 D=64
+omega_tensor outputs=identical median_wall_ms base=5 avx512=4 runs=3
+phi_replay outputs=identical median_wall_ms base=6841 avx512=7743 runs=3
+twin_xgraph outputs=identical median_wall_ms base=20336 avx512=23207 runs=3
+init_teleo outputs=identical median_wall_ms base=17593 avx512=19319 runs=3
+--- omega_tensor (stdout, identical on both builds)
+omega_tensor n 7386
+torus_phase_min_max 0‿2461
+torus_phase_in_range 1
+phase_is_permutation_of_first_2462 1
+delta_eq_89_count 7386
+delta_at_0 89
+coherent_count 3712
+coherent_checksum 404587591
+--- phi_replay (stdout, identical on both builds)
+phi_replay V D 512‿64
+steps 7386
+harmonic_min_max ¯0.9999996584275549‿1
+distinct_tokens 8
+longest_run 12
+argmin_ties 0
+cycle found,mu,lambda 1‿1447‿2462
+first_32_tokens 0‿0‿0‿0‿0‿0‿0‿0‿80‿463‿80‿272‿183‿272‿183‿272‿183‿272‿183‿272‿183‿272‿183‿272‿80‿463‿463‿463‿463‿463‿463‿463
+token_checksum 35857419
+--- twin_xgraph (stdout, identical on both builds)
+twin_xgraph steps 7386
+forward cycle found,mu,lambda 1‿1447‿2462
+twin_eos cycle found,mu,lambda 1‿1‿2462
+forward argmin_ties 0
+twin_eos argmin_ties 0
+snap argmin_ties 3911
+forward distinct,longest_run 8‿12
+twin_eos distinct,longest_run 8‿12
+bidirectional distinct 8
+bidirectional = forward, = twin 5425‿5427
+forward_ne_twin steps 3920
+bidirectional checksum 791181031
+--- init_teleo (stdout, identical on both builds)
+init_teleo m 16
+teleo_resonance ¯0.8253408053890465
+init_teleo_is_vocab_row 0
+antipodal cycle found,mu,lambda 1‿1‿2462
+eos cycle found,mu,lambda 1‿1‿2462
+antipodal argmin_ties 0
+eos argmin_ties 0
+antipodal distinct,longest_run 8‿12
+eos distinct,longest_run 8‿12
+antipodal_vs_eos agree_steps 7385
+antipodal_vs_eos merge_step 1
+antipodal checksum 42951646

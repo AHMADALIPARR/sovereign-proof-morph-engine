@@ -1,0 +1,61 @@
+== CompleteCoherence.agda (postulates: 0)
+/workspace/sovereign-proof-morph-engine/agda/CompleteCoherence.agda:15,13-13
+/workspace/sovereign-proof-morph-engine/agda/CompleteCoherence.agda:15,13: Parse error
+:<ERROR>
+ ℕ}
+
+record VerifiedTokenEmbed...
+exit 42
+== CompleteCoherence_Checked.agda (postulates: 0)
+exit 0
+== ExperientialFunctor.agda (postulates: 2)
+/workspace/sovereign-proof-morph-engine/agda/ExperientialFunctor.agda:79,7-26
+The following names are declared but not accompanied by a
+definition: postulate-coherence
+when scope checking the declaration
+  Ω-G₀ p
+    = record
+      { qualia-intensity = PhysicalState.energy p
+      ; resonance-phase = PhysicalState.m p
+      ; coherence-inv = postulate-coherence p
+      }
+    where
+      postulate-coherence :
+        ∀ p → PhysicalState.energy p ≤ PhysicalState.m p
+/workspace/sovereign-proof-morph-engine/agda/ExperientialFunctor.agda:87,7-37
+PhysicalFlow.Δt p-flow + 88 * PhysicalFlow.Δt p-flow !=
+PhysicalFlow.Δt p-flow * 89 of type ℕ
+when checking that the expression PhysicalFlow.flow-proof p-flow
+has type
+PhenomenalState.resonance-phase (Ω-G₀ S₂) ≡
+PhenomenalState.resonance-phase (Ω-G₀ S₁) +
+PhysicalFlow.Δt p-flow * 89
+exit 42
+== ExperientialFunctor_Checked.agda (postulates: 0)
+exit 0
+== ExtractTorusPath.agda (postulates: 0)
+exit 0
+== Main.agda (postulates: 1)
+/workspace/sovereign-proof-morph-engine/agda/CompleteCoherence.agda:15,13-13
+/workspace/sovereign-proof-morph-engine/agda/CompleteCoherence.agda:15,13: Parse error
+:<ERROR>
+ ℕ}
+
+record VerifiedTokenEmbed...
+exit 42
+== Main_Checked.agda (postulates: 0)
+exit 0
+== Morph/IR.agda (postulates: 0)
+exit 0
+== Morph/Rewrite.agda (postulates: 0)
+exit 0
+== Morph/Subst.agda (postulates: 0)
+exit 0
+== Morph/Topology.agda (postulates: 0)
+exit 0
+== Morph/TorusBridge.agda (postulates: 0)
+exit 0
+== PhiHarmonics.agda (postulates: 0)
+exit 0
+== TorusInvariant.agda (postulates: 0)
+exit 0
