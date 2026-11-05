@@ -1,0 +1,16 @@
+; SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SnapKitty-Opaque-1.0
+; Copyright (C) 2026 Ahmad Ali Parr / SnapKitty Research Lab
+;
+; Generation-0 program for the end-to-end demo: a scaled polynomial with
+; dead bindings, identity operations, a constant loop and a call with a
+; literal second argument (specialization opportunity).
+(def scale (p (* int int)) int
+  (mul (fst p) (snd p)))
+(def poly (x int) int
+  (let unused (mul x (int 7))
+    (add (add (mul x (int 1)) (int 3)) (int 4))))
+(def main (x int) int
+  (let k (int 2)
+    (add (call poly x)
+         (add (call scale (pair x (int 5)))
+              (iter (nat 3) (mul k (int 0)) (i acc (add acc (toint i))))))))
