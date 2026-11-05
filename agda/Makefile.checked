@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SnapKitty-Opaque-1.0
+# Copyright (C) 2026 Ahmad Ali Parr / SnapKitty Research Lab
+# Checked build of the Agda runtime: agda --compile already invokes GHC.
+
+AGDA       = agda
+AGDA_FLAGS = --compile --compile-dir=MAlonzoBuild --ghc-flag=-O2
+BINARY     = snap-omega-engine
+SRC        = Main_Checked.agda
+
+.PHONY: all clean run check
+
+all: $(BINARY)
+
+$(BINARY): $(SRC) CompleteCoherence_Checked.agda
+	$(AGDA) $(AGDA_FLAGS) $(SRC)
+	cp MAlonzoBuild/Main_Checked $(BINARY)
+
+check:
+	$(AGDA) $(SRC)
+
+run: $(BINARY)
+	./$(BINARY)
+
+clean:
+	rm -rf MAlonzoBuild $(BINARY)
