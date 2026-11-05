@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SnapKitty-Opaque-1.0
+# Copyright (C) 2026 Ahmad Ali Parr / SnapKitty Research Lab
+[package]
+name = "spme"
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-only OR LicenseRef-SnapKitty-Opaque-1.0"
+publish = false
+
+[dependencies]
+
+[profile.release]
+overflow-checks = true
