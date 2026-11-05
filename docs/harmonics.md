@@ -26,7 +26,7 @@ first at 2462, and two samples collide iff their times agree mod 2462.
 
 ## What is measured
 
-The values in [figures/harmonic_scalars.png](figures/harmonic_scalars.png) are the CBQN values at every phase
+The values in [figures/harmonic_scalars.svg](figures/harmonic_scalars.svg) are the CBQN values at every phase
 0..2461. The measured range is ¯0.9999996584275549 to 1.
 
 A harmonic value depends only on the phase, and the phase has period 2462. So the
