@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SnapKitty-Opaque-1.0
+# Copyright (C) 2026 Ahmad Ali Parr / SnapKitty Research Lab
+name = "SpmeLean"
+version = "0.1.0"
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.35.0"
+
+[[lean_lib]]
+name = "XREX_ALSC"
+
+[[lean_lib]]
+name = "XREX_ALSC_Checked"
+
+[[lean_lib]]
+name = "SovereignSuperposition"
+
+[[lean_lib]]
+name = "SovereignSuperposition_Checked"
+
+[[lean_lib]]
+name = "Audit"
+
+[[lean_lib]]
+name = "TwinAnchor"
+
+[[lean_lib]]
+name = "TwinAnchor_Checked"
+
+[[lean_lib]]
+name = "HarmonicAperiodic"
+
+[[lean_lib]]
+name = "HarmonicAperiodic_Checked"
+
+[[lean_lib]]
+name = "SnapUnique"
+
+[[lean_lib]]
+name = "SnapUnique_Checked"
+
+[[lean_lib]]
+name = "SnapUnique_Inconsistent"
+
+[[lean_lib]]
+name = "SnapUniqueFixed"
+
+[[lean_lib]]
+name = "SnapUniqueFixed_Inconsistent"
+
+[[lean_lib]]
+name = "PhaseNormalization"
+
+[[lean_lib]]
+name = "XGraph"
+
+[[lean_lib]]
+name = "EngineAArith"
